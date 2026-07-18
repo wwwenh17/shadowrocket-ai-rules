@@ -1,0 +1,30 @@
+# Claude
+DOMAIN-SUFFIX,anthropic.com
+DOMAIN-SUFFIX,claude.ai
+
+# Grok / xAI
+DOMAIN-SUFFIX,x.ai
+DOMAIN-SUFFIX,grok.com
+
+# Perplexity
+DOMAIN-SUFFIX,perplexity.ai
+DOMAIN-SUFFIX,pplx.ai
+
+# OpenRouter
+DOMAIN-SUFFIX,openrouter.ai
+
+# Poe
+DOMAIN-SUFFIX,poe.com
+DOMAIN-SUFFIX,quora.com
+
+# Common AI infrastructure
+DOMAIN-SUFFIX,replicate.com
+DOMAIN-SUFFIX,stability.ai
+DOMAIN-SUFFIX,stabilityai.com
+DOMAIN-SUFFIX,runwayml.com
+DOMAIN-SUFFIX,midjourney.com
+DOMAIN-SUFFIX,huggingface.co
+DOMAIN-SUFFIX,huggingface.com
+DOMAIN-SUFFIX,civitai.com
+DOMAIN-SUFFIX,tensor.art
+DOMAIN-SUFFIX,fal.ai
