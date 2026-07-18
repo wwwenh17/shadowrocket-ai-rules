@@ -1,0 +1,16 @@
+# Gemini / Google AI Studio / NotebookLM
+DOMAIN,gemini.google.com
+DOMAIN,bard.google.com
+DOMAIN,aistudio.google.com
+DOMAIN,ai.google.dev
+DOMAIN,makersuite.google.com
+DOMAIN,notebooklm.google.com
+DOMAIN-SUFFIX,generativeai.google
+DOMAIN-SUFFIX,deepmind.google
+DOMAIN-SUFFIX,ai.google
+DOMAIN-SUFFIX,gemini.google.com
+DOMAIN-SUFFIX,notebooklm.google.com
+DOMAIN-SUFFIX,generativelanguage.googleapis.com
+DOMAIN,generativelanguage.googleapis.com
+DOMAIN,alkalimakersuite-pa.clients6.google.com
+DOMAIN,proactivebackend-pa.googleapis.com
