@@ -1,0 +1,17 @@
+# OpenAI / ChatGPT
+DOMAIN-SUFFIX,openai.com
+DOMAIN-SUFFIX,chatgpt.com
+DOMAIN-SUFFIX,oaistatic.com
+DOMAIN-SUFFIX,oaiusercontent.com
+DOMAIN-SUFFIX,openaiapi-site.azureedge.net
+DOMAIN-SUFFIX,openaicom.imgix.net
+DOMAIN-SUFFIX,auth0.com
+DOMAIN,chat.openai.com
+DOMAIN,api.openai.com
+DOMAIN,auth.openai.com
+DOMAIN,platform.openai.com
+DOMAIN,cdn.oaistatic.com
+DOMAIN,files.oaiusercontent.com
+DOMAIN,ios.chat.openai.com
+DOMAIN-SUFFIX,statsig.com
+DOMAIN-SUFFIX,featuregates.org
