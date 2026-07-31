@@ -1,0 +1,8 @@
+# OpenAI / ChatGPT 补充规则
+DOMAIN-SUFFIX,openai.com
+DOMAIN-SUFFIX,chatgpt.com
+DOMAIN-SUFFIX,oaistatic.com
+DOMAIN-SUFFIX,oaiusercontent.com
+DOMAIN,api.openai.com
+DOMAIN,auth.openai.com
+DOMAIN,platform.openai.com
