@@ -1,0 +1,10 @@
+# 自定义直连规则：局域网、路由器与私有地址。
+# 在下方仅添加已确认需要直连的域名；不要添加订阅地址或个人信息。
+DOMAIN,localhost
+DOMAIN-SUFFIX,local
+IP-CIDR,10.0.0.0/8,no-resolve
+IP-CIDR,100.64.0.0/10,no-resolve
+IP-CIDR,127.0.0.0/8,no-resolve
+IP-CIDR,169.254.0.0/16,no-resolve
+IP-CIDR,172.16.0.0/12,no-resolve
+IP-CIDR,192.168.0.0/16,no-resolve
