@@ -1,0 +1,4 @@
+# Claude / Anthropic 补充规则
+DOMAIN-SUFFIX,claude.ai
+DOMAIN,api.anthropic.com
+DOMAIN,platform.claude.com
