@@ -1,0 +1,3 @@
+# Microsoft Copilot 与 GitHub Copilot 补充规则
+DOMAIN,copilot.microsoft.com
+DOMAIN-SUFFIX,githubcopilot.com
