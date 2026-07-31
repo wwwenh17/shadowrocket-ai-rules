@@ -26,14 +26,24 @@ jobs:
       - name: Static validation
         run: python scripts/validate.py
 
-      - name: Check remote rule URLs
+      - name: Check upstream rule URLs
         shell: bash
         run: |
           set -euo pipefail
-          mapfile -t urls < <(grep -Eo 'https://[^,[:space:]]+' shadowrocket-ai.conf | sort -u)
+          mapfile -t urls < <(awk -F, '$1 == "RULE-SET" { print $2 }' shadowrocket-ai.conf | sort -u)
           for url in "${urls[@]}"; do
             echo "Checking ${url}"
             curl --fail --location --silent --show-error \
               --retry 3 --retry-delay 2 --max-time 30 \
               --range 0-2047 "${url}" >/dev/null
           done
+
+      - name: Check LOWERTOP reference compatibility
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --silent --show-error \
+            --retry 3 --retry-delay 2 --max-time 30 \
+            --output /tmp/lazy_group.conf \
+            https://lowertop.github.io/Shadowrocket/lazy_group.conf
+          python scripts/validate.py --lowertop-reference /tmp/lazy_group.conf
