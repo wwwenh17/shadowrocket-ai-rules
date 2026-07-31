@@ -1,0 +1,4 @@
+# Grok / xAI 补充规则
+DOMAIN-SUFFIX,x.ai
+DOMAIN-SUFFIX,grok.com
+DOMAIN,api.x.ai
