@@ -1,6 +1,6 @@
 # Shadowrocket AI Rules
 
-面向 Shadowrocket 的保守分流配置。当前版本：**v1.2.0**。
+面向 Shadowrocket 的保守分流配置。当前版本：**v1.2.1**。
 
 ## 主配置地址
 
@@ -14,6 +14,7 @@ https://raw.githubusercontent.com/wwwenh17/shadowrocket-ai-rules/main/shadowrock
 - “美国 AI 优选”：优先使用名称含 `US`（或美国标识）和 `AI专线` 的节点；本次已按当前订阅中的 `🇺🇸US·头等·AI专线` 命名适配。不可用时回退到普通美国节点。
 - Gemini 在普通 Google 规则之前，Copilot 在普通 Microsoft 规则之前。
 - GitHub、Google、流媒体、通信与社交服务均使用独立策略组。
+- Spotify 默认保持代理，并可在策略组中手动切换为 `DIRECT` 直连。
 - Apple 和国内服务默认直连，但可在策略组中手动改为代理。
 - 广告、隐私和劫持拦截仅使用 `AdvertisingLite`、`Privacy`、`Hijacking` 三个上游规则集；不启用 MITM、HTTPS 解密、脚本或重写。
 - 中国大陆域名使用 `ChinaMax`，最后以 `GEOIP,CN,DIRECT` 兜底；最终规则仅有 `FINAL,节点选择`。

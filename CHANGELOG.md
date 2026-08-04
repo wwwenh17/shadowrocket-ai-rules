@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.2.1 — 2026-08-04
+
+- Spotify 策略组新增 `DIRECT` 选项，保留原有代理为默认选择
+- 同步远程版本中 Grok 的新加坡节点选项
+- 核对 blackmatrix7 与 LOWERTOP 最新更新；现有远程规则引用无需调整
+- 增加 Spotify 必须包含 `DIRECT` 的静态校验
+
 ## v1.2.0 — 2026-07-31
 
 - AI 服务改为 OpenAI、Gemini、Claude、Grok、Copilot 独立策略组和独立本地补充规则
