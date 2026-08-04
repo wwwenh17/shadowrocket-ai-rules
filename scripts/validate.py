@@ -63,13 +63,16 @@ def validate_config(text: str) -> None:
         fail("possible sensitive value found in configuration")
 
     proxy_section = text.split("[Proxy Group]", 1)[1].split("[Rule]", 1)[0]
-    groups = {
-        line.split("=", 1)[0].strip()
+    group_lines = {
+        line.split("=", 1)[0].strip(): line.split("=", 1)[1].strip()
         for line in proxy_section.splitlines()
         if line.strip() and not line.lstrip().startswith("#") and "=" in line
     }
+    groups = set(group_lines)
     if not groups:
         fail("no proxy groups found")
+    if "DIRECT" not in {part.strip() for part in group_lines.get("Spotify", "").split(",")}:
+        fail("Spotify proxy group must include DIRECT")
 
     rule_section = text.split("[Rule]", 1)[1]
     active_rules = [
