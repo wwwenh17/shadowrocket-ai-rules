@@ -1,5 +1,14 @@
 # Changelog
 
+## v2.0.0 — 2026-08-07
+
+- 保留原有 Shadowrocket 主配置与自定义规则，新增分层规则源目录。
+- 新增 Finance、Payment、Apple、LAN、China、Developer、Japan-Media 与 AI 子分类。
+- 新增 28 个 Mihomo classical Rule Provider 和 OpenClash/Mihomo 配置模板。
+- 新增离线 `proxy-provider-analysis` 节点名称分类器，未知节点不强行归类。
+- 扩展校验：Provider payload、域名格式、危险关键词、模板优先级与 10 个代表性路由模拟。
+- GitHub Actions 改为优先执行确定性本地验证，外部上游可用性检查不再阻断主校验。
+
 ## v1.2.1 — 2026-08-04
 
 - Spotify 策略组新增 `DIRECT` 选项，保留原有代理为默认选择

@@ -1,0 +1,157 @@
+# Mihomo / OpenClash template. Replace the example.invalid URL locally; never commit a subscription URL or token.
+mixed-port: 7890
+allow-lan: true
+mode: rule
+log-level: warning
+
+proxy-providers:
+  subscription:
+    type: http
+    url: "https://example.invalid/replace-with-your-subscription"
+    path: ./providers/subscription.yaml
+    interval: 86400
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 600
+
+proxy-groups:
+  - name: 🚀节点选择
+    type: select
+    use: [subscription]
+    proxies: [♻️自动选择, 🛑故障转移, 🇺🇸 US, 🇯🇵 JP, 🇭🇰 HK, 🇸🇬 SG, DIRECT]
+  - name: ♻️自动选择
+    type: url-test
+    use: [subscription]
+    url: https://www.gstatic.com/generate_204
+    interval: 600
+    tolerance: 100
+    filter: '^(?!.*(?:剩余|到期|流量|套餐|官网|客服|公告|群组|频道|重置|游戏|GAME)).*$'
+  - name: 🛑故障转移
+    type: fallback
+    use: [subscription]
+    url: https://www.gstatic.com/generate_204
+    interval: 600
+    filter: '^(?!.*(?:剩余|到期|流量|套餐|官网|客服|公告|群组|频道|重置|游戏|GAME)).*$'
+  - name: 🇺🇸 US
+    type: url-test
+    use: [subscription]
+    url: https://www.gstatic.com/generate_204
+    interval: 600
+    filter: '(?i)(🇺🇸|美国|美國|\\bUS\\b|\\bUSA\\b|United States|America|Los Angeles|San Jose|Seattle|New York|Dallas|洛杉矶|洛杉磯|圣何塞|聖荷西|西雅图|西雅圖|纽约|紐約|达拉斯)'
+  - name: 🇯🇵 JP
+    type: url-test
+    use: [subscription]
+    url: https://www.gstatic.com/generate_204
+    interval: 600
+    filter: '(?i)(🇯🇵|日本|\\bJP\\b|Japan|Tokyo|Osaka|东京|東京|大阪|埼玉)'
+  - name: 🇭🇰 HK
+    type: url-test
+    use: [subscription]
+    url: https://www.gstatic.com/generate_204
+    interval: 600
+    filter: '(?i)(🇭🇰|香港|\\bHK\\b|Hong Kong|HKG)'
+  - name: 🇸🇬 SG
+    type: url-test
+    use: [subscription]
+    url: https://www.gstatic.com/generate_204
+    interval: 600
+    filter: '(?i)(🇸🇬|新加坡|狮城|獅城|\\bSG\\b|Singapore)'
+  - name: 🤖 AI
+    type: select
+    proxies: [🇺🇸 US, 🇯🇵 JP, 🇭🇰 HK, 🚀节点选择]
+  - name: 🌐 Google
+    type: select
+    proxies: [🇺🇸 US, 🚀节点选择, 🇯🇵 JP, 🇭🇰 HK]
+  - name: 📺 YouTube
+    type: select
+    proxies: [🇯🇵 JP, 🇺🇸 US, 🇭🇰 HK, 🚀节点选择]
+  - name: 🐱 GitHub
+    type: select
+    proxies: [🇺🇸 US, 🚀节点选择, 🇯🇵 JP]
+  - name: 👨‍💻 Developer
+    type: select
+    proxies: [🇺🇸 US, 🚀节点选择, 🇯🇵 JP]
+  - name: 🎬 Netflix
+    type: select
+    proxies: [🇯🇵 JP, 🇭🇰 HK, 🇺🇸 US, 🚀节点选择]
+  - name: 🎵 Spotify
+    type: select
+    proxies: [DIRECT, 🚀节点选择, 🇯🇵 JP, 🇺🇸 US]
+  - name: 🇯🇵 Japan-Media
+    type: select
+    proxies: [🇯🇵 JP, 🚀节点选择]
+  - name: 🍎 Apple
+    type: select
+    proxies: [DIRECT, 🚀节点选择]
+  - name: 💰 Finance
+    type: select
+    proxies: [DIRECT, 🚀节点选择]
+  - name: 💳 Payment
+    type: select
+    proxies: [DIRECT, 🚀节点选择]
+  - name: 🚫 Advertising
+    type: select
+    proxies: [REJECT, DIRECT]
+
+rule-providers:
+  LAN: {type: file, behavior: classical, path: ./providers/LAN.yaml}
+  Advertising: {type: file, behavior: classical, path: ./providers/Advertising.yaml}
+  Malware: {type: file, behavior: classical, path: ./providers/Malware.yaml}
+  Finance: {type: file, behavior: classical, path: ./providers/Finance.yaml}
+  Payment: {type: file, behavior: classical, path: ./providers/Payment.yaml}
+  Apple: {type: file, behavior: classical, path: ./providers/Apple.yaml}
+  OpenAI: {type: file, behavior: classical, path: ./providers/OpenAI.yaml}
+  Claude: {type: file, behavior: classical, path: ./providers/Claude.yaml}
+  GoogleAI: {type: file, behavior: classical, path: ./providers/GoogleAI.yaml}
+  AI-Platform: {type: file, behavior: classical, path: ./providers/AI-Platform.yaml}
+  AI-Image: {type: file, behavior: classical, path: ./providers/AI-Image.yaml}
+  AI-Model: {type: file, behavior: classical, path: ./providers/AI-Model.yaml}
+  Google: {type: file, behavior: classical, path: ./providers/Google.yaml}
+  YouTube: {type: file, behavior: classical, path: ./providers/YouTube.yaml}
+  GitHub: {type: file, behavior: classical, path: ./providers/GitHub.yaml}
+  Copilot: {type: file, behavior: classical, path: ./providers/Copilot.yaml}
+  Developer: {type: file, behavior: classical, path: ./providers/Developer.yaml}
+  Netflix: {type: file, behavior: classical, path: ./providers/Netflix.yaml}
+  DisneyPlus: {type: file, behavior: classical, path: ./providers/DisneyPlus.yaml}
+  Spotify: {type: file, behavior: classical, path: ./providers/Spotify.yaml}
+  Twitch: {type: file, behavior: classical, path: ./providers/Twitch.yaml}
+  Japan-Media: {type: file, behavior: classical, path: ./providers/Japan-Media.yaml}
+  Telegram: {type: file, behavior: classical, path: ./providers/Telegram.yaml}
+  X: {type: file, behavior: classical, path: ./providers/X.yaml}
+  Instagram: {type: file, behavior: classical, path: ./providers/Instagram.yaml}
+  Facebook: {type: file, behavior: classical, path: ./providers/Facebook.yaml}
+  Microsoft: {type: file, behavior: classical, path: ./providers/Microsoft.yaml}
+  China: {type: file, behavior: classical, path: ./providers/China.yaml}
+
+rules:
+  - RULE-SET,LAN,DIRECT
+  - RULE-SET,Advertising,🚫 Advertising
+  - RULE-SET,Malware,🚫 Advertising
+  - RULE-SET,Finance,💰 Finance
+  - RULE-SET,Payment,💳 Payment
+  - RULE-SET,Apple,🍎 Apple
+  - RULE-SET,OpenAI,🤖 AI
+  - RULE-SET,Claude,🤖 AI
+  - RULE-SET,GoogleAI,🤖 AI
+  - RULE-SET,AI-Platform,🤖 AI
+  - RULE-SET,AI-Image,🤖 AI
+  - RULE-SET,AI-Model,🤖 AI
+  - RULE-SET,Google,🌐 Google
+  - RULE-SET,YouTube,📺 YouTube
+  - RULE-SET,GitHub,🐱 GitHub
+  - RULE-SET,Copilot,👨‍💻 Developer
+  - RULE-SET,Developer,👨‍💻 Developer
+  - RULE-SET,Netflix,🎬 Netflix
+  - RULE-SET,DisneyPlus,🎬 Netflix
+  - RULE-SET,Spotify,🎵 Spotify
+  - RULE-SET,Twitch,🎬 Netflix
+  - RULE-SET,Japan-Media,🇯🇵 Japan-Media
+  - RULE-SET,Telegram,🚀节点选择
+  - RULE-SET,X,🚀节点选择
+  - RULE-SET,Instagram,🚀节点选择
+  - RULE-SET,Facebook,🚀节点选择
+  - RULE-SET,Microsoft,🚀节点选择
+  - RULE-SET,China,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,🚀节点选择

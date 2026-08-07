@@ -1,0 +1,8 @@
+# Gemini、Google AI Studio 与 Vertex AI；须在普通 Google 规则前。
+DOMAIN,gemini.google.com
+DOMAIN,ai.google.dev
+DOMAIN,aistudio.google.com
+DOMAIN-SUFFIX,notebooklm.google.com
+DOMAIN-SUFFIX,generativelanguage.googleapis.com
+DOMAIN-SUFFIX,aiplatform.googleapis.com
+

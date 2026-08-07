@@ -1,0 +1,9 @@
+proxies:
+  - name: 美国洛杉矶GPT优化
+    type: ss
+  - name: 香港Netflix
+    type: ss
+  - name: 日本IIJ
+    type: ss
+  - name: Relay-01
+    type: ss

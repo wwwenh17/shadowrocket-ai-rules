@@ -1,0 +1,11 @@
+# 高置信金融机构域名。避免使用 bank 等宽关键词。
+DOMAIN-SUFFIX,icbc.com.cn
+DOMAIN-SUFFIX,ccb.com
+DOMAIN-SUFFIX,boc.cn
+DOMAIN-SUFFIX,cmbchina.com
+DOMAIN-SUFFIX,bankcomm.com
+DOMAIN-SUFFIX,psbc.com
+DOMAIN-SUFFIX,citicbank.com
+DOMAIN-SUFFIX,pingan.com
+DOMAIN-SUFFIX,eastmoney.com
+

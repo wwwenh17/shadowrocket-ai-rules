@@ -1,0 +1,6 @@
+# 普通 Google 生态；Google AI 与 YouTube 应在本规则前。
+DOMAIN-SUFFIX,google.com
+DOMAIN-SUFFIX,gstatic.com
+DOMAIN-SUFFIX,googleapis.com
+DOMAIN-SUFFIX,googleusercontent.com
+

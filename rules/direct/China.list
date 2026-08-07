@@ -1,0 +1,9 @@
+# 常用大陆服务补充；完整大陆域名仍由原 ChinaMax/GEOIP CN 处理。
+DOMAIN-SUFFIX,baidu.com
+DOMAIN-SUFFIX,qq.com
+DOMAIN-SUFFIX,aliyun.com
+DOMAIN-SUFFIX,taobao.com
+DOMAIN-SUFFIX,tmall.com
+DOMAIN-SUFFIX,jd.com
+DOMAIN-SUFFIX,bilibili.com
+

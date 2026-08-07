@@ -1,0 +1,10 @@
+# 常用开发服务与包仓库。
+DOMAIN-SUFFIX,docker.com
+DOMAIN-SUFFIX,docker.io
+DOMAIN-SUFFIX,npmjs.com
+DOMAIN-SUFFIX,pypi.org
+DOMAIN-SUFFIX,pythonhosted.org
+DOMAIN-SUFFIX,homebrew.sh
+DOMAIN-SUFFIX,visualstudio.com
+DOMAIN-SUFFIX,vsassets.io
+

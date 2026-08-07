@@ -1,5 +1,39 @@
 # Shadowrocket AI Rules
 
+## V4 个人智能网络分流系统
+
+当前本地升级版本为 **v2.0.0**。仓库保留原有 Shadowrocket 配置和自定义规则，同时新增 Mihomo/OpenClash 兼容层：
+
+- `rules/direct/`：LAN、China、Finance、Payment、Apple、Microsoft
+- `rules/ai/`：OpenAI、Claude、GoogleAI、AI-Platform、AI-Image、AI-Model
+- `rules/developer/`：GitHub、Copilot、Developer
+- `rules/media/`：Google、YouTube、Netflix、DisneyPlus、Spotify、Twitch、Japan-Media
+- `rules/social/`：Telegram、X、Instagram、Facebook
+- `rules/security/`：Advertising、Malware 的保守占位
+- `providers/`：由本地规则源生成的 28 个 Mihomo classical Rule Provider
+- `templates/config-template.yaml`：OpenClash/Mihomo 模板，不含真实订阅地址
+- `scripts/proxy_provider_analysis.py`：离线节点名称分类工具
+
+规则优先级为 LAN → Advertising/Malware → Finance → Payment → Apple → AI → Google/YouTube → GitHub/Developer → Streaming → Social → Microsoft → China → GEOIP CN → MATCH。
+
+金融、支付、Apple 默认 `DIRECT`；AI 默认进入 `🤖 AI`，Google 默认美国节点，YouTube 支持美国/日本/香港选择，Spotify 保留 `DIRECT`，未知机场节点不强行归类。
+
+### 节点分类
+
+```bash
+python3 scripts/proxy_provider_analysis.py subscription.yaml --output node-classification.yaml
+```
+
+工具只读取本地 Mihomo YAML 中的节点名称，不联网、不探测 IP、不上传订阅内容。无法判断的节点标记为 `UNKNOWN`，继续由 `🚀节点选择` 接管。
+
+### 本地验证
+
+```bash
+python3 scripts/build_providers.py
+python3 scripts/validate.py
+ruby -e 'require "yaml"; YAML.load_file("templates/config-template.yaml")'
+```
+
 面向 Shadowrocket 的保守分流配置。当前版本：**v1.2.1**。
 
 ## 主配置地址

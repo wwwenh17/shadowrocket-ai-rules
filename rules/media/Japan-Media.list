@@ -1,0 +1,8 @@
+# 日本内容、票务和音乐服务，使用日本策略组。
+DOMAIN-SUFFIX,eplus.jp
+DOMAIN-SUFFIX,lawson-ticket.jp
+DOMAIN-SUFFIX,pia.jp
+DOMAIN-SUFFIX,oricon.co.jp
+DOMAIN-SUFFIX,radiko.jp
+DOMAIN-SUFFIX,abema.tv
+

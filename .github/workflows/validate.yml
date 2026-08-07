@@ -24,9 +24,23 @@ jobs:
           python-version: "3.12"
 
       - name: Static validation
-        run: python scripts/validate.py
+        run: |
+          python scripts/build_providers.py
+          python scripts/validate.py
+
+      - name: Mihomo YAML syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          ruby -e 'require "yaml"; YAML.load_file("templates/config-template.yaml"); Dir["providers/*.yaml"].each { |f| YAML.load_file(f) }'
+
+      - name: Offline node classification fixture
+        run: |
+          python scripts/proxy_provider_analysis.py tests/fixtures/proxies.yaml --output /tmp/node-classification.yaml
+          grep -q 'region: UNKNOWN' /tmp/node-classification.yaml
 
       - name: Check upstream rule URLs
+        continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
@@ -39,6 +53,7 @@ jobs:
           done
 
       - name: Check LOWERTOP reference compatibility
+        continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail

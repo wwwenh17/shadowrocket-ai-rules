@@ -1,0 +1,14 @@
+# Generated offline. Unknown nodes must remain in the default selector.
+nodes:
+  - name: "美国洛杉矶GPT优化"
+    region: US
+    tags: [AI, GPT, Premium]
+  - name: "香港Netflix"
+    region: HK
+    tags: [Streaming, Netflix]
+  - name: "日本IIJ"
+    region: JP
+    tags: [Japan, Media]
+  - name: "Relay-01"
+    region: UNKNOWN
+    tags: []
